@@ -70,8 +70,9 @@ export async function savePlatform(form: FormData) {
 export async function updateRequest(form: FormData) {
   const {supabase,user}=await context(['super_admin','admin','support']);
   const id=value(form,'id'), status=value(form,'status');
-  const allowed=['pending_payment','paid','under_review','in_progress','waiting_for_customer','completed','cancelled','refunded'];
-  if(!id||!allowed.includes(status)) throw new Error('بيانات الطلب غير صحيحة');
+  // Payment confirmation and refunds must come only from a verified payment-provider workflow.
+  const allowed=['pending_payment','under_review','in_progress','waiting_for_customer','completed','cancelled'];
+  if(!id||!allowed.includes(status)) throw new Error('الحالة غير مسموحة من لوحة التشغيل. تأكيد الدفع والاسترداد يتطلبان تحققاً مالياً مستقلاً.');
   const {error}=await supabase.from('service_requests').update({status,updated_at:new Date().toISOString()}).eq('id',id);
   if(error) throw new Error('تعذر تحديث الطلب: '+error.message);
   const note=value(form,'note');

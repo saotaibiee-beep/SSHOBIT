@@ -133,3 +133,5 @@
 .admin-role-matrix>div b{color:#244cdb}.admin-role-matrix>div span{color:#68746c}
 .admin-notice{padding:12px 15px;background:#f7e4df;color:#9c3928;font-size:12px;margin-bottom:18px}
 @media(max-width:760px){.admin-topbar{padding:12px 18px;align-items:flex-start;flex-direction:column}.admin-user-area{width:100%;flex-wrap:wrap;gap:9px}.admin-main{width:calc(100% - 30px);padding-top:30px}.admin-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.admin-stats article{padding:15px;min-height:115px}.admin-module-grid{grid-template-columns:1fr}.admin-page-heading{align-items:flex-start;flex-direction:column}.admin-auth-card{padding:26px 22px}.admin-role-matrix>div{grid-template-columns:100px 1fr}}
+
+body:has(.admin-shell) .site-header,body:has(.admin-shell) .site-footer,body:has(.admin-auth-shell) .site-header,body:has(.admin-auth-shell) .site-footer{display:none}

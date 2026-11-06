@@ -1,0 +1,1 @@
+export const metadata={title:'مركز المعرفة'}; export default function Page(){return <main className="section container"><div className="eyebrow">مركز المعرفة</div><h1>مقالات وإرشادات</h1><p className="muted">المقالات المنشورة ستخضع للمراجعة وتوثيق المصادر قبل إتاحتها للزوار.</p></main>}

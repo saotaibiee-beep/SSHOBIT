@@ -11,7 +11,8 @@ const modules = [
   { title: 'الخدمات والطلبات', detail: 'متابعة الخدمات وطلبات العملاء', href: '/admin/operations', mark: '03' },
   { title: 'الدليل والمنصات', detail: 'إدارة المنصات والمحافظ ومعلوماتها الموثقة', href: '/admin/directory', mark: '04' },
   { title: 'الأسئلة الشائعة', detail: 'تحديث الإجابات وترتيب ظهورها', href: '/admin/faqs', mark: '05' },
-  { title: 'الفريق والصلاحيات', detail: 'حسابات الإدارة والأدوار وسجل النشاط', href: '/admin/users', mark: '06' },
+  { title: 'الفريق والصلاحيات', detail: 'حسابات الإدارة والأدوار', href: '/admin/users', mark: '06' },
+  { title: 'سجل النشاط', detail: 'تسجيل عمليات دخول وخروج الإدارة', href: '/admin/activity', mark: '07' },
 ];
 
 export default async function AdminDashboard({ searchParams }: { searchParams: Promise<{ forbidden?: string }> }) {

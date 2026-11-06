@@ -1,0 +1,1 @@
+export const metadata={title:'سياسة الخصوصية'}; export default function Page(){return <main className="section container"><h1>سياسة الخصوصية</h1><p className="muted">نوضح قبل الإطلاق أنواع البيانات التي نجمعها وأغراض استخدامها ومدة الاحتفاظ بها وحقوق المستخدم ووسائل التواصل. هذه الصفحة تأسيسية وتحتاج مراجعة قانونية وبيانات المشغل قبل النشر النهائي.</p></main>}

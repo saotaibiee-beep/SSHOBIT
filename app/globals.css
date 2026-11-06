@@ -66,3 +66,13 @@
 @media(max-width:850px){.front-hero-live{min-height:0}.interactive-visual{min-height:440px}.front-hero-live .front-grid{padding-top:48px}}
 @media(max-width:480px){.interactive-visual{padding:17px 14px;min-height:430px}.visual-core{height:210px}.visual-rings span:nth-child(2){width:220px;height:220px}.visual-progress button{font-size:9px;gap:4px}.visual-detail h3{font-size:15px}.visual-detail p{font-size:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.animated-scene *, .animated-scene{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.interactive-visual{transition:none;transform:none!important}.visual-progress button,.visual-next{transition:none}}
+
+.faq-list{margin-top:32px;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);padding:0}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 4px;font-weight:700}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:'+';font:500 24px Manrope,sans-serif;color:var(--blue)}
+.faq-item[open] summary:after{content:'−'}
+.faq-item summary small{color:var(--muted);font-size:11px;font-weight:500;white-space:nowrap}
+.faq-answer{max-width:850px;padding:0 4px 22px;color:var(--muted);font-size:14px;line-height:2}
+@media(max-width:700px){.faq-item summary{align-items:flex-start;font-size:14px}.faq-item summary small{display:none}}

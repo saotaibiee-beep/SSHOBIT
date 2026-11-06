@@ -1,14 +1,10 @@
 import Link from 'next/link';
-import {createClient} from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
+import { ArrowUpLeft, BookOpen, ShieldCheck, FileText } from 'lucide-react';
 
 export const metadata={title:'مركز المعرفة',description:'مقالات عربية مبسطة حول التداول والتحويلات الرقمية والأمان المالي.'};
-
 export default async function Page(){
-  const supabase=await createClient();
-  const {data:articles,error}=await supabase.from('articles').select('id,title_ar,slug,excerpt_ar,published_at,category:article_categories(name_ar)').eq('status','published').order('published_at',{ascending:false});
-  return <main className="section container">
-    <div className="eyebrow">مركز المعرفة</div><h1>مقالات وإرشادات</h1>
-    <p className="muted">محتوى عربي واضح، تتم مراجعته وتوثيق مصادره قبل النشر.</p>
-    {error?<p className="muted">تعذر تحميل المقالات حالياً. حاول مرة ثانية لاحقاً.</p>:articles?.length?<div className="principles-grid">{articles.map((item:any)=><article key={item.id}><div className="eyebrow">{item.category?.name_ar||'مقال معرفي'}</div><h3>{item.title_ar}</h3><p>{item.excerpt_ar}</p><Link href={`/knowledge/${item.slug}`}>اقرأ المقال ←</Link></article>)}</div>:<p className="muted">نعمل على إعداد المقالات ومراجعتها قبل نشرها. بنضيف المحتوى هنا بعد توثيق مصادره.</p>}
-  </main>;
+ const supabase=await createClient();
+ const {data:articles,error}=await supabase.from('articles').select('id,title_ar,slug,excerpt_ar,published_at,category:article_categories(name_ar)').eq('status','published').order('published_at',{ascending:false});
+ return <main className="inner-page"><section className="inner-hero inner-hero-blue"><div className="container inner-hero-content"><div className="breadcrumb-lite">الرئيسية <span>/</span> مركز المعرفة</div><span className="section-kicker">KNOWLEDGE / RESEARCH</span><h1>المعرفة تصنع <em>قراراً أوضح.</em></h1><p>مقالات وأدلة عربية تشرح المفاهيم والإجراءات بلغة مفهومة، مع توثيق المصادر ومراجعة المحتوى قبل النشر.</p><div className="inner-hero-note"><ShieldCheck size={17}/> نميّز بين المعلومات المؤكدة والاحتمالات، ونوضح تاريخ المراجعة.</div></div></section><section className="container inner-content"><div className="inner-section-title"><div><span className="section-kicker">مكتبة SSHOBIT</span><h2>المقالات والإرشادات</h2></div><span className="section-count">{articles?.length??0} منشور</span></div>{error?<div className="empty-state"><FileText size={28}/><h3>تعذر تحميل المقالات</h3><p>حاول مرة ثانية لاحقاً.</p></div>:articles?.length?<div className="published-grid knowledge-grid">{articles.map((item:any,i)=><article className="published-card" key={item.id}><div className="published-card-meta"><span>{item.category?.name_ar||'مقال معرفي'}</span><span>0{i+1}</span></div><span className="article-icon"><BookOpen size={20}/></span><h3>{item.title_ar}</h3><p>{item.excerpt_ar}</p><Link href={`/knowledge/${item.slug}`}>اقرأ المقال <ArrowUpLeft size={16}/></Link></article>)}</div>:<div className="empty-state"><BookOpen size={28}/><h3>نراجع المحتوى قبل نشره</h3><p>لا توجد مقالات منشورة حالياً. نفضّل نشر محتوى موثق ومراجع بدلاً من معلومات غير مكتملة.</p></div>}</section></main>;
 }

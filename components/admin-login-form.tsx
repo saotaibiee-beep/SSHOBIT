@@ -40,6 +40,7 @@ export function AdminLoginForm() {
       return;
     }
 
+    await supabase.from('admin_audit_logs').insert({ actor_id: data.user.id, action: 'admin_login', entity_type: 'auth', metadata: { method: 'password' } });
     router.replace('/admin');
     router.refresh();
   }

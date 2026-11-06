@@ -13,6 +13,7 @@ const modules = [
   { title: 'الأسئلة الشائعة', detail: 'تحديث الإجابات وترتيب ظهورها', href: '/admin/faqs', mark: '05' },
   { title: 'الفريق والصلاحيات', detail: 'حسابات الإدارة والأدوار', href: '/admin/users', mark: '06' },
   { title: 'سجل النشاط', detail: 'تسجيل عمليات دخول وخروج الإدارة', href: '/admin/activity', mark: '07' },
+  { title: 'مصفوفة الصلاحيات', detail: 'مراجعة نطاق الوصول لكل دور إداري', href: '/admin/permissions', mark: '08' },
 ];
 
 export default async function AdminDashboard({ searchParams }: { searchParams: Promise<{ forbidden?: string }> }) {

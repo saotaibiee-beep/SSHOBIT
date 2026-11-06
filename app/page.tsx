@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowUpLeft, ArrowLeft, Landmark, Wallet, Network, ShieldCheck, FileSearch, BookOpenCheck, ClipboardList, ScanSearch, CircleHelp, LockKeyhole, MoveUpLeft } from 'lucide-react';
+import { ArrowUpLeft, ArrowLeft, Landmark, Wallet, Network, ShieldCheck, FileSearch, BookOpenCheck, ClipboardList, ScanSearch, LockKeyhole } from 'lucide-react';
 import { AnimatedBackground } from '@/components/animated-background';
 import { InteractiveVisual } from '@/components/interactive-visual';
 import { Reveal } from '@/components/reveal';

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-import { requireAdmin, type AdminRole } from '@/lib/admin';
+import { requireAdmin } from '@/lib/admin';
 import { AdminLogoutButton } from '@/components/admin-logout-button';
 
 export const dynamic = 'force-dynamic';

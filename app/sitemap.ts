@@ -1,2 +1,13 @@
-import type {MetadataRoute} from 'next';
-export default function sitemap():MetadataRoute.Sitemap{const base='https://sshobit.com';return ['', '/problems','/diagnosis','/directory','/knowledge','/services','/about','/contact','/privacy','/terms'].map(path=>({url:base+path,lastModified:new Date()}))}
+import type { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://sshobit.vercel.app';
+  const paths = [
+    '', '/problems', '/diagnosis', '/directory', '/knowledge',
+    '/services', '/faq', '/about', '/contact', '/privacy', '/terms',
+  ];
+  return paths.map(path => ({
+    url: base + path,
+    lastModified: new Date(),
+  }));
+}

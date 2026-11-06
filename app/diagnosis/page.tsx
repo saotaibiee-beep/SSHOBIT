@@ -1,3 +1,4 @@
-import {DiagnosisWizard} from '@/components/diagnosis-wizard';
-export const metadata={title:'التشخيص الذكي'};
-export default function DiagnosisPage(){return <main className="section container"><div className="eyebrow">تشخيص إرشادي</div><h1>خلّنا نفهم وش صاير</h1><p className="muted">جاوب عن الأسئلة عشان تظهر لك خطوات تحقق أولية. لا تدخل أي بيانات حساسة.</p><DiagnosisWizard/></main>}
+import { DiagnosisWizard } from '@/components/diagnosis-wizard';
+import { ShieldCheck, LockKeyhole } from 'lucide-react';
+export const metadata={title:'التشخيص الذكي',description:'تشخيص إرشادي مجاني لترتيب مشكلات التحويلات والمنصات والمحافظ.'};
+export default function DiagnosisPage(){return <main className="inner-page"><section className="inner-hero inner-hero-blue"><div className="container inner-hero-content"><div className="breadcrumb-lite">الرئيسية <span>/</span> التشخيص الذكي</div><span className="section-kicker">SMART DIAGNOSIS / GUIDED FLOW</span><h1>خلّنا نفهم <em>وش صاير.</em></h1><p>اختر المجال ووصف المشكلة لتحصل على خطوات تحقق أولية. النتيجة إرشادية، ولا تحل محل رد الجهة الرسمية.</p><div className="inner-hero-note"><LockKeyhole size={17}/> لا تدخل بيانات شخصية أو أرقام حسابات أو كلمات مرور.</div></div></section><section className="container inner-content"><div className="diagnosis-intro-note"><ShieldCheck size={18}/><span>المعلومات التي تدخلها هنا اختيارات عامة داخل المتصفح، ولا نطلب بيانات دخولك أو مفاتيح محافظك.</span></div><DiagnosisWizard/></section></main>}

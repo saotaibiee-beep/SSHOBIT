@@ -1,0 +1,1 @@
+export const metadata={title:'دليل المنصات والمحافظ'}; export default function Page(){return <main className="section container"><div className="eyebrow">الدليل</div><h1>دليل المنصات والمحافظ</h1><p className="muted">سيُبنى هذا الدليل على معلومات موثقة من المواقع الرسمية، مع توضيح الرسوم والتوفر والقيود وتاريخ آخر مراجعة. لا توجد توصية استثمارية.</p></main>}

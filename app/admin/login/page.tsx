@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { AdminLoginForm } from '@/components/admin-login-form';
-import Link from 'next/link';
 import { getAdminContext } from '@/lib/admin';
 
 export const metadata: Metadata = { title: 'دخول الإدارة' };

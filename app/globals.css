@@ -135,3 +135,5 @@
 @media(max-width:760px){.admin-topbar{padding:12px 18px;align-items:flex-start;flex-direction:column}.admin-user-area{width:100%;flex-wrap:wrap;gap:9px}.admin-main{width:calc(100% - 30px);padding-top:30px}.admin-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.admin-stats article{padding:15px;min-height:115px}.admin-module-grid{grid-template-columns:1fr}.admin-page-heading{align-items:flex-start;flex-direction:column}.admin-auth-card{padding:26px 22px}.admin-role-matrix>div{grid-template-columns:100px 1fr}}
 
 body:has(.admin-shell) .site-header,body:has(.admin-shell) .site-footer,body:has(.admin-auth-shell) .site-header,body:has(.admin-auth-shell) .site-footer{display:none}
+
+.admin-role-editor{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.admin-role-editor select{border:1px solid #d1d4ca;background:#fff;padding:6px;font-size:11px}.admin-role-editor button{border:0;background:#17221f;color:#fff;padding:7px 10px;font-size:10px;cursor:pointer}.admin-role-editor button:disabled{opacity:.4;cursor:not-allowed}.admin-role-editor small{font-size:9px;color:#718076}

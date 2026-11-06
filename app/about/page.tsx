@@ -1,0 +1,1 @@
+export const metadata={title:'من نحن'}; export default function Page(){return <main className="section container"><h1>عن SSHOBIT</h1><p className="muted">SSHOBIT منصة معلوماتية مستقلة تساعد المتداولين في السعودية على فهم مشكلات التحويلات والمنصات والمحافظ الرقمية، وتوضيح خطوات التحقق والمصادر الرسمية. لا نمثل بنكاً أو منصة تداول أو جهة تنظيمية.</p></main>}

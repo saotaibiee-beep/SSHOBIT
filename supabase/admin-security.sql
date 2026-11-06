@@ -60,7 +60,13 @@ begin
     execute format('drop policy if exists %I on public.%I', 'staff read '||t, t);
     execute format('create policy %I on public.%I for select to authenticated using (private.current_admin_role() in (''super_admin'',''admin'',''editor'',''support''))', 'staff read '||t, t);
     execute format('drop policy if exists %I on public.%I', 'editors manage '||t, t);
-    execute format('create policy %I on public.%I for insert to authenticated with check (private.current_admin_role() in (''super_admin'',''admin'',''editor''))', 'staff insert '||t, t);
+    execute format('drop policy if exists %I on public.%I', 'staff insert '||t, t);
+    execute format('drop policy if exists %I on public.%I', 'staff update '||t, t);
+    execute format('drop policy if exists %I on public.%I', 'admins delete '||t, t);
+    execute format('drop policy if exists %I on public.%I', 'admins insert services', t);
+  execute format('drop policy if exists %I on public.%I', 'admins update services', t);
+  execute format('drop policy if exists %I on public.%I', 'admins delete services', t);
+  execute format('create policy %I on public.%I for insert to authenticated with check (private.current_admin_role() in (''super_admin'',''admin'',''editor''))', 'staff insert '||t, t);
     execute format('create policy %I on public.%I for update to authenticated using (private.current_admin_role() in (''super_admin'',''admin'',''editor'')) with check (private.current_admin_role() in (''super_admin'',''admin'',''editor''))', 'staff update '||t, t);
     execute format('create policy %I on public.%I for delete to authenticated using (private.current_admin_role() in (''super_admin'',''admin''))', 'admins delete '||t, t);
   end loop;

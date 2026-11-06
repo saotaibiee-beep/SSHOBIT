@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import {createClient} from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
+import { ArrowUpLeft, Landmark, Wallet, Network, ShieldCheck, FileSearch } from 'lucide-react';
 
-export const metadata={title:'مركز المشكلات',description:'أدلة عملية لفهم المشكلات الشائعة لدى المتداولين في السعودية.'};
-
+export const metadata={title:'مركز المشكلات',description:'أدلة عملية لفهم المشكلات الشائعة لدى المتداولين والتحقق من الخيارات المتاحة.'};
+const areas=[{icon:Landmark,title:'البنوك والتحويلات',desc:'تأخر الحوالات وطلبات المستندات والخدمات البنكية.'},{icon:Wallet,title:'المنصات والمحافظ',desc:'الإيداع والسحب والتحقق من الحسابات.'},{icon:Network,title:'الشبكات والمعاملات',desc:'مطابقة الشبكات والعناوين ومعرّفات التحويل.'}];
 export default async function Page(){
-  const supabase=await createClient();
-  const {data:problems,error}=await supabase.from('problems').select('id,title_ar,slug,summary_ar,category:problem_categories(name_ar)').eq('status','published').order('created_at',{ascending:false});
-  return <main className="section container">
-    <div className="eyebrow">مركز المشكلات</div><h1>المشكلات الشائعة</h1>
-    <p className="muted">أدلة عملية تساعدك تتحقق من المشكلة وتفهم الخيارات المتاحة، مع الاعتماد على المصادر الرسمية.</p>
-    {error?<p className="muted">تعذر تحميل الأدلة حالياً. حاول مرة ثانية لاحقاً.</p>:problems?.length?<div className="principles-grid">{problems.map((item:any)=><article key={item.id}><div className="eyebrow">{item.category?.name_ar||'دليل إرشادي'}</div><h3>{item.title_ar}</h3><p>{item.summary_ar}</p><Link href={`/problems/${item.slug}`}>اقرأ الدليل ←</Link></article>)}</div>:<div className="principles-grid"><article><h3>البنوك والحوالات السعودية</h3><p>تأخر الحوالات وطلبات المستندات وتقييد الخدمات.</p></article><article><h3>منصات التداول والمحافظ</h3><p>الإيداع والسحب والتحقق من الحسابات.</p></article><article><h3>الشبكات والتحويلات الرقمية</h3><p>الشبكات والعناوين ومعرّفات المعاملات.</p></article></div>}
-  </main>;
+ const supabase=await createClient();
+ const {data:problems,error}=await supabase.from('problems').select('id,title_ar,slug,summary_ar,category:problem_categories(name_ar)').eq('status','published').order('created_at',{ascending:false});
+ return <main className="inner-page"><section className="inner-hero"><div className="container inner-hero-content"><div className="breadcrumb-lite">الرئيسية <span>/</span> مركز المشكلات</div><span className="section-kicker">مركز المشكلات / KNOWLEDGE MAP</span><h1>ابدأ من <em>نوع المشكلة.</em></h1><p>أدلة عملية ترتب لك الأسباب المحتملة، وطرق التحقق، والخطوات التي يمكنك اتخاذها عبر القنوات الرسمية.</p><div className="inner-hero-note"><ShieldCheck size={17}/> لا نفترض سبب المشكلة دون دليل، ولا نضمن قرارات الجهات الخارجية.</div></div></section>
+ <section className="container inner-content"><div className="inner-section-title"><div><span className="section-kicker">المجالات الرئيسية</span><h2>اختر المجال الأقرب لحالتك</h2></div><span className="section-count">01 — 03</span></div><div className="mini-area-grid">{areas.map((a,i)=><article key={a.title} className="mini-area-card"><span className="mini-area-number">0{i+1}</span><span className="mini-area-icon"><a.icon size={22}/></span><h3>{a.title}</h3><p>{a.desc}</p></article>)}</div>
+ <div className="inner-section-title published-title"><div><span className="section-kicker">أدلة منشورة</span><h2>الأدلة المتاحة</h2></div><span className="section-count">{problems?.length??0} دليل</span></div>
+ {error?<div className="empty-state"><FileSearch size={28}/><h3>تعذر تحميل الأدلة</h3><p>حاول مرة ثانية لاحقاً.</p></div>:problems?.length?<div className="published-grid">{problems.map((item:any,i)=><article className="published-card" key={item.id}><div className="published-card-meta"><span>{item.category?.name_ar||'دليل إرشادي'}</span><span>0{i+1}</span></div><h3>{item.title_ar}</h3><p>{item.summary_ar}</p><Link href={`/problems/${item.slug}`}>اقرأ الدليل <ArrowUpLeft size={16}/></Link></article>)}</div>:<div className="empty-state"><FileSearch size={28}/><h3>الأدلة قيد المراجعة</h3><p>نعرض الأدلة بعد اكتمال التحقق من محتواها ومصادرها. يمكنك استخدام التشخيص الإرشادي كبداية.</p><Link href="/diagnosis" className="empty-state-link">ابدأ التشخيص <ArrowUpLeft size={15}/></Link></div>}</section></main>;
 }

@@ -28,6 +28,7 @@ export default async function AdminDashboard({ searchParams }: { searchParams: P
     supabase.from('faqs').select('id', { count: 'exact', head: true }),
   ]);
   const values = counts.map(item => item.count ?? 0);
+  const requestCount = ['super_admin', 'admin', 'support'].includes(role) ? values[2] : '—';
   const params = await searchParams;
 
   return (
@@ -45,7 +46,7 @@ export default async function AdminDashboard({ searchParams }: { searchParams: P
         <section className="admin-stats">
           <article><small>المقالات</small><strong>{values[0]}</strong><span>مسودات ومنشورة</span></article>
           <article><small>أدلة المشكلات</small><strong>{values[1]}</strong><span>محتوى مركز المشكلات</span></article>
-          <article><small>طلبات الخدمات</small><strong>{values[2]}</strong><span>جميع الحالات المسموح بها</span></article>
+          <article><small>طلبات الخدمات</small><strong>{requestCount}</strong><span>جميع الحالات المسموح بها</span></article>
           <article><small>الأسئلة الشائعة</small><strong>{values[3]}</strong><span>إجمالي الأسئلة</span></article>
         </section>
         <div className="admin-section-title"><div><span className="admin-eyebrow">WORKSPACE</span><h2>أقسام المنصة</h2></div><span>SSHOBIT / ADMIN</span></div>

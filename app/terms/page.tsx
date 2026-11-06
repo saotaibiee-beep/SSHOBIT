@@ -1,0 +1,1 @@
+export const metadata={title:'الشروط والأحكام'}; export default function Page(){return <main className="section container"><h1>الشروط والأحكام</h1><p className="muted">المحتوى للتوعية والإرشاد ولا يمثل استشارة مالية أو قانونية. لا نضمن فك تقييد الحسابات أو استرجاع التحويلات. الشروط النهائية تتطلب مراجعة قانونية وإضافة بيانات المشغل قبل الإطلاق.</p></main>}

@@ -6,11 +6,11 @@ import { AdminLogoutButton } from '@/components/admin-logout-button';
 export const dynamic = 'force-dynamic';
 
 const modules = [
-  { title: 'المقالات والمعرفة', detail: 'إدارة المقالات والمراجع والمراجعة قبل النشر', href: '/admin/content', mark: '01' },
-  { title: 'مركز المشكلات', detail: 'إدارة أدلة المشكلات وخطوات المعالجة', href: '/admin/content?type=problems', mark: '02' },
-  { title: 'الخدمات والطلبات', detail: 'متابعة الخدمات وطلبات العملاء', href: '/admin/operations', mark: '03' },
-  { title: 'الدليل والمنصات', detail: 'إدارة المنصات والمحافظ ومعلوماتها الموثقة', href: '/admin/directory', mark: '04' },
-  { title: 'الأسئلة الشائعة', detail: 'تحديث الإجابات وترتيب ظهورها', href: '/admin/faqs', mark: '05' },
+  { title: 'المقالات والمعرفة', detail: 'مراجعة المقالات والمراجع وحالات النشر', href: '/admin/content', mark: '01' },
+  { title: 'مركز المشكلات', detail: 'مراجعة أدلة المشكلات وخطوات المعالجة', href: '/admin/content?type=problems', mark: '02' },
+  { title: 'الخدمات والطلبات', detail: 'متابعة طلبات العملاء وحالاتها', href: '/admin/operations', mark: '03' },
+  { title: 'الدليل والمنصات', detail: 'مراجعة بيانات المنصات والمحافظ ومصادرها', href: '/admin/directory', mark: '04' },
+  { title: 'الأسئلة الشائعة', detail: 'مراجعة الإجابات وترتيب ظهورها', href: '/admin/faqs', mark: '05' },
   { title: 'الفريق والصلاحيات', detail: 'حسابات الإدارة والأدوار', href: '/admin/users', mark: '06' },
   { title: 'سجل النشاط', detail: 'تسجيل عمليات دخول وخروج الإدارة', href: '/admin/activity', mark: '07' },
   { title: 'مصفوفة الصلاحيات', detail: 'مراجعة نطاق الوصول لكل دور إداري', href: '/admin/permissions', mark: '08' },

@@ -37,7 +37,7 @@ body{background:var(--canvas);color:var(--ink);font-size:15px}.container{width:m
 .home-hero .visual-rings,.home-hero .visual-rings span{border-color:#cae8d140}.home-hero .visual-rings span:nth-child(2){border-color:#c9f27a40}
 .home-hero-bottom{display:flex;justify-content:space-between;padding:14px 0 18px;border-top:1px solid #dbeee122}
 .section-pad{padding:88px 0}.home-areas{background:#f7f9f6}
-.section-heading-row{display:flex;justify-content:space-between;align-items:end;gap:36px;margin-bottom:34px}
+.section-heading-row{display:flex;justify-content:space-between;align-items:flex-end;gap:36px;margin-bottom:34px}
 .section-heading-row .section-kicker,.method-heading .section-kicker{color:#588675}
 .section-heading-row h2,.method-heading h2,.knowledge-layout h2,.final-cta-inner h2{font-size:clamp(31px,4vw,47px);line-height:1.35;letter-spacing:-1px;margin:10px 0 0}
 .section-heading-row>p{max-width:390px;color:var(--muted);font-size:12px;line-height:2;margin:0 0 4px}
@@ -49,7 +49,7 @@ body{background:var(--canvas);color:var(--ink);font-size:15px}.container{width:m
 .area-blue .area-icon{background:#edf0ff;color:var(--blue)}.area-sand .area-icon{background:#f5f0e4;color:#9c7540}
 .area-card h3{font-size:19px;margin:17px 0 6px}.area-card p{font-size:11px;color:var(--muted);line-height:1.9;margin:0}
 .area-card-link{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-top:13px;border-top:1px solid var(--line);font-size:10px;font-weight:700;color:var(--brand)}
-.home-method{background:#edf3ee}.method-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:11%;align-items:start}
+.home-method{background:#edf3ee}.method-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:11%;align-items:flex-start}
 .method-heading{position:sticky;top:125px}.method-heading h2{margin:13px 0}.method-heading>p{color:var(--muted);font-size:12px;line-height:2;max-width:370px}
 .underlined-link{display:inline-flex;align-items:center;gap:8px;margin-top:15px;color:var(--brand);font-size:11px;font-weight:700;border-bottom:1px solid #8ea99b;padding-bottom:5px}
 .steps-stack{border-top:1px solid #cddbd1}.method-step{display:grid;grid-template-columns:38px 45px 1fr 18px;align-items:center;gap:14px;padding:22px 0;border-bottom:1px solid #cddbd1}
@@ -100,7 +100,7 @@ body{background:var(--canvas);color:var(--ink);font-size:15px}.container{width:m
 .inner-hero-content>p{max-width:650px;color:#65766d;font-size:13px;line-height:2}.inner-hero-dark .inner-hero-content>p{color:#c1d2c6}
 .inner-hero-note{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:9px 11px;border:1px solid #34664b2e;border-radius:9px;color:#4c705e;font-size:9px}
 .inner-hero-dark .inner-hero-note{border-color:#ddf1e033;color:#d2e5d6}
-.inner-content{padding-block:55px 80px}.inner-section-title{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}
+.inner-content{padding-block:55px 80px}.inner-section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:22px}
 .inner-section-title h2{font-size:clamp(22px,3vw,30px);margin:7px 0 0}.inner-section-title .section-kicker{color:#6c8978}
 .section-count{font:600 9px Manrope,sans-serif;color:#83938a}
 .mini-area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:50px}
@@ -133,7 +133,7 @@ body{background:var(--canvas);color:var(--ink);font-size:15px}.container{width:m
 .inner-bottom-cta b{font-size:13px}.inner-bottom-cta p{font-size:10px;color:var(--muted);margin:3px 0 0}
 .inner-bottom-cta>a{display:inline-flex;align-items:center;gap:7px;padding:10px 13px;border-radius:9px;background:var(--brand);color:#fff;font-size:10px;font-weight:700;white-space:nowrap}
 .diagnosis-shell{margin-top:32px;padding:25px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 16px 45px #1a45300f;max-width:850px}
-.diagnosis-top{display:flex;justify-content:space-between;align-items:start;gap:18px}.diagnosis-top .section-kicker{color:#6b8e7a}
+.diagnosis-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}.diagnosis-top .section-kicker{color:#6b8e7a}
 .diagnosis-top h2{font-size:21px;margin:7px 0 4px}.diagnosis-top p{font-size:11px;color:var(--muted);margin:0}
 .diagnosis-step-count{font:800 23px Manrope,sans-serif;color:var(--brand);white-space:nowrap}.diagnosis-step-count small{font-size:10px;color:#9aaba0}
 .diagnosis-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:22px 0 26px}

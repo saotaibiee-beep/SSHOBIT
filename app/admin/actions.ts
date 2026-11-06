@@ -82,3 +82,14 @@ export async function updateRequest(form: FormData) {
   await audit(supabase,user.id,'service_request_status_updated','service_request',id);
   revalidatePath('/admin/operations');
 }
+
+export async function addAdminByUid(form: FormData) {
+  const {supabase,user}=await context(['super_admin']);
+  const userId=value(form,'user_id'), role=value(form,'role');
+  if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(userId)) throw new Error('معرف المستخدم غير صحيح');
+  if(!['admin','editor','support'].includes(role)) throw new Error('الدور غير مسموح');
+  const {error}=await supabase.from('admin_users').insert({user_id:userId,role});
+  if(error) throw new Error('تعذرت إضافة المسؤول. تأكد من أن الحساب موجود في Supabase Auth وأنه غير مضاف مسبقاً.');
+  await audit(supabase,user.id,'admin_user_added','admin_user',userId);
+  revalidatePath('/admin/users');
+}

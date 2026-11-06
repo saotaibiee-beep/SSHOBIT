@@ -1,0 +1,1 @@
+export const metadata={title:'تواصل معنا'}; export default function Page(){return <main className="section container"><h1>تواصل معنا</h1><p className="muted">قنوات التواصل الرسمية ستضاف هنا بعد إعداد بريد الدعم وآلية استقبال الطلبات. لا ترسل كلمات مرور أو رموز تحقق أو مفاتيح محافظ.</p></main>}

@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export function SiteHeader(){return <header className="site-header"><div className="container nav-wrap"><Link className="brand" href="/"><span className="brand-mark">S</span>SSHOBIT</Link><nav><Link href="/problems">المشكلات</Link><Link href="/diagnosis">التشخيص الذكي</Link><Link href="/directory">الدليل</Link><Link href="/knowledge">المعرفة</Link><Link href="/services">الخدمات</Link></nav><Link className="nav-cta" href="/diagnosis">ابدأ الآن</Link></div></header>}

@@ -19,7 +19,7 @@ export function InteractiveVisual() {
   };
   const Icon = stages[active].icon;
   return <div className="interactive-visual" onPointerMove={onPointerMove} onPointerLeave={() => setTilt({ x: 0, y: 0 })} style={{ transform: `perspective(900px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)` }}>
-    <div className="visual-topline"><span>SSHOBIT / SMART PATH</span><span className="live-indicator"><i/> مسار تفاعلي</span></div>
+    <div className="visual-topline"><span>SSHOBIT / SMART DIAGNOSIS</span><span className="live-indicator"><i/> مسار تفاعلي</span></div>
     <div className="visual-core">
       <div className="visual-rings"><span/><span/><span/></div>
       <div className="visual-center"><Icon size={29}/><b>SH</b></div>

@@ -23,6 +23,10 @@ grant execute on function private.current_admin_role() to authenticated;
 
 grant select, insert, update, delete on public.admin_users to authenticated;
 grant select, insert on public.admin_audit_logs to authenticated;
+grant select, insert on public.service_request_internal_notes to authenticated;
+grant select on public.service_deliveries to authenticated;
+grant select on public.payments to authenticated;
+grant select on public.payment_events to authenticated;
 
 drop policy if exists "admin users read own or super admin" on public.admin_users;
 create policy "admin users read own or super admin" on public.admin_users

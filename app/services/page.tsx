@@ -1,0 +1,1 @@
+export const metadata={title:'الحلول والخدمات'}; export default function Page(){return <main className="section container"><div className="eyebrow">الخدمات</div><h1>حلول مدروسة حسب الحالة</h1><p className="muted">الخدمات المدفوعة غير مفعلة حالياً. لن نعرض خدمة للشراء قبل تحديد نطاقها وسعرها وآلية تنفيذها والتحقق من الدفع وتسليمها.</p></main>}

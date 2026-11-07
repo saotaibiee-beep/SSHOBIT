@@ -6,7 +6,7 @@ export function SiteFooter() {
     <div className="container footer-main">
       <div className="footer-about">
         <Link className="footer-logo" href="/"><span className="brand-mark">S</span><span>SSHOBIT</span></Link>
-        <p>مرجع عربي لفهم المشكلات المالية والتقنية المرتبطة بالتحويلات والمنصات والمحافظ الرقمية.</p>
+        <p>مرجع عربي يشرح المشكلات التي قد تواجه المتداولين أثناء التداول والإيداع والسحب والتحويلات والمحافظ الرقمية.</p>
         <div className="footer-disclaimer"><ShieldCheck size={17}/><span>معلومات توعوية موثقة قدر الإمكان، وليست استشارة مالية أو قانونية.</span></div>
       </div>
       <div className="footer-column"><h3>استكشف</h3><Link href="/problems"><Landmark size={15}/> مركز المشكلات</Link><Link href="/diagnosis"><ScanSearch size={15}/> التشخيص الذكي</Link><Link href="/directory">دليل المنصات والمحافظ</Link></div>

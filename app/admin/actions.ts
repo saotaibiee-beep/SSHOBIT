@@ -11,15 +11,25 @@ async function context(allowed: AdminRole[]) {
 function value(form: FormData, key: string) { return String(form.get(key) ?? '').trim(); }
 function list(form: FormData, key: string) { return value(form,key).split('\n').map(x=>x.trim()).filter(Boolean); }
 async function audit(supabase: any, userId: string, action: string, type: string, id?: string) {
-  await supabase.from('admin_audit_logs').insert({actor_id:userId,action,entity_type:type,entity_id:id??null,metadata:{}});
+  const { error } = await supabase.from('admin_audit_logs').insert({actor_id:userId,action,entity_type:type,entity_id:id??null,metadata:{}});
+  if (error) throw new Error('تعذر تسجيل العملية في سجل الإدارة: ' + error.message);
 }
 
 export async function saveArticle(form: FormData) {
   const {supabase,user}=await context(['super_admin','admin','editor']);
   const id=value(form,'id'), status=value(form,'status')||'draft';
-  const row={title_ar:value(form,'title_ar'),slug:value(form,'slug'),excerpt_ar:value(form,'excerpt_ar')||null,content_md:value(form,'content_md'),status,author_id:user.id,published_at:status==='published'?new Date().toISOString():null,seo_title:value(form,'seo_title')||null,seo_description:value(form,'seo_description')||null};
+  if (!['draft','published','archived'].includes(status)) throw new Error('حالة المقال غير صحيحة');
+  const row={title_ar:value(form,'title_ar'),slug:value(form,'slug'),excerpt_ar:value(form,'excerpt_ar')||null,content_md:value(form,'content_md'),status,seo_title:value(form,'seo_title')||null,seo_description:value(form,'seo_description')||null};
   if(!row.title_ar||!row.slug||!row.content_md) throw new Error('العنوان والرابط والمحتوى مطلوبة');
-  const result=id?await supabase.from('articles').update(row).eq('id',id).select('id').single():await supabase.from('articles').insert(row).select('id').single();
+  let result;
+  if (id) {
+    const existing = await supabase.from('articles').select('published_at').eq('id',id).maybeSingle();
+    if (existing.error || !existing.data) throw new Error('المقال المطلوب غير موجود أو لا يمكن قراءته');
+    const publishedAt = status === 'draft' ? null : (existing.data.published_at || new Date().toISOString());
+    result = await supabase.from('articles').update({...row,published_at:publishedAt,updated_at:new Date().toISOString()}).eq('id',id).select('id').single();
+  } else {
+    result = await supabase.from('articles').insert({...row,author_id:user.id,published_at:status==='draft'?null:new Date().toISOString()}).select('id').single();
+  }
   if(result.error) throw new Error('تعذر حفظ المقال: '+result.error.message);
   await audit(supabase,user.id,id?'article_updated':'article_created','article',result.data.id);
   revalidatePath('/admin/content'); revalidatePath('/knowledge'); revalidatePath('/sitemap.xml');
@@ -28,12 +38,13 @@ export async function saveArticle(form: FormData) {
 export async function saveProblem(form: FormData) {
   const {supabase,user}=await context(['super_admin','admin','editor']);
   const id=value(form,'id'), status=value(form,'status')||'draft';
+  if (!['draft','published','archived'].includes(status)) throw new Error('حالة دليل المشكلة غير صحيحة');
   const row={title_ar:value(form,'title_ar'),slug:value(form,'slug'),summary_ar:value(form,'summary_ar'),body_ar:value(form,'body_ar')||null,causes:list(form,'causes'),checks:list(form,'checks'),steps:list(form,'steps'),avoid_items:list(form,'avoid_items'),official_contact_guidance:value(form,'official_contact_guidance')||null,review_date:value(form,'review_date')||null,status,seo_title:value(form,'seo_title')||null,seo_description:value(form,'seo_description')||null};
   if(!row.title_ar||!row.slug||!row.summary_ar) throw new Error('العنوان والرابط والملخص مطلوبة');
-  const result=id?await supabase.from('problems').update(row).eq('id',id).select('id').single():await supabase.from('problems').insert(row).select('id').single();
+  const result=id?await supabase.from('problems').update({...row,updated_at:new Date().toISOString()}).eq('id',id).select('id').single():await supabase.from('problems').insert(row).select('id').single();
   if(result.error) throw new Error('تعذر حفظ دليل المشكلة: '+result.error.message);
   await audit(supabase,user.id,id?'problem_updated':'problem_created','problem',result.data.id);
-  revalidatePath('/admin/content'); revalidatePath('/problems');
+  revalidatePath('/admin/content'); revalidatePath('/problems'); revalidatePath('/sitemap.xml');
 }
 
 export async function saveFaq(form: FormData) {

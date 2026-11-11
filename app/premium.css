@@ -281,3 +281,11 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #34
 .admin-small-button:disabled{opacity:.45;cursor:not-allowed}
 .admin-form-row{display:grid;grid-template-columns:1fr 140px;gap:10px}
 @media(max-width:760px){.admin-request-card{grid-template-columns:1fr 1fr}.admin-request-card>div{grid-column:1/-1}.admin-request-card input{grid-column:1/-1}.admin-form-row{grid-template-columns:1fr 110px}}
+
+/* Standalone visual identity: icon only, responsive and aligned */
+.brand,.footer-logo{display:inline-flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0}
+.site-brand-symbol{display:block;width:48px;height:48px;object-fit:contain;transition:transform .2s ease}
+.footer-logo .site-brand-symbol{width:58px;height:58px}
+.brand:hover .site-brand-symbol,.footer-logo:hover .site-brand-symbol{transform:scale(1.055)}
+@media(max-width:640px){.site-brand-symbol{width:43px;height:43px}.footer-logo .site-brand-symbol{width:52px;height:52px}}
+@media(prefers-reduced-motion:reduce){.site-brand-symbol{transition:none}}

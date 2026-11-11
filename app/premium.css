@@ -453,3 +453,23 @@ img,svg,video,canvas{max-width:100%}
 .site-footer .footer-column a:hover,.site-footer .footer-bottom a{color:#b5eb6b}
 .site-header .brand,.site-footer .footer-logo{display:inline-flex;align-items:center;justify-content:center}
 .site-header .site-brand-symbol,.site-footer .site-brand-symbol{object-fit:contain}
+
+/* Original JPG brand mark: display unchanged, balanced with header/footer. */
+.site-header .brand,.site-footer .footer-logo{padding:0;background:transparent;border:0;line-height:0}
+.site-header .brand .site-brand-symbol{width:46px;height:46px;max-width:none;object-fit:contain;border-radius:11px;box-shadow:none}
+.site-footer .footer-logo .site-brand-symbol{width:54px;height:54px;max-width:none;object-fit:contain;border-radius:12px;box-shadow:none}
+.site-header .brand:hover .site-brand-symbol,.site-footer .footer-logo:hover .site-brand-symbol{transform:none}
+.site-header{background:#f0f1ef}
+.site-footer{background:#103c32}
+@media(max-width:680px){
+ .site-header .brand .site-brand-symbol{width:44px;height:44px}
+ .site-footer .footer-logo .site-brand-symbol{width:52px;height:52px}
+ .site-footer .footer-main{padding-block:30px 26px;gap:20px}
+ .site-footer .footer-about{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+ .site-footer .footer-about p{margin:0;line-height:1.85}
+ .final-cta{padding-block:45px}
+ .final-cta-inner{gap:20px}
+ .final-cta-inner h2{font-size:clamp(29px,8vw,38px);line-height:1.45}
+ .final-cta-inner>div:first-child>p{font-size:14px;line-height:1.85}
+ .final-cta-button{min-height:48px}
+}

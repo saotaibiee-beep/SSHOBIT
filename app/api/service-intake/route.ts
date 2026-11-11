@@ -11,7 +11,7 @@ export async function POST(req:Request){
   const name=String(data.name||'').trim();
   const email=String(data.email||'').trim().toLowerCase();
   const summary=String(data.summary||'').trim();
-  if(!Object.hasOwn(prices,service)||name.length<2||name.length>100||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||email.length>254||summary.length<30||summary.length>3000){
+  if(!Object.prototype.hasOwnProperty.call(prices,service)||name.length<2||name.length>100||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||email.length>254||summary.length<30||summary.length>3000){
    return NextResponse.json({error:'تأكد من اختيار الخدمة وكتابة الاسم والبريد ووصف المشكلة (30 حرفاً على الأقل).'},{status:400});
   }
   const url=process.env.NEXT_PUBLIC_SUPABASE_URL;

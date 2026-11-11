@@ -15,7 +15,7 @@ const resourceLinks = [
   { href: '/faq', label: 'الأسئلة الشائعة', icon: HelpCircle },
   { href: '/services', label: 'الحلول والخدمات', icon: Sparkles },
   { href: '/services/request', label: 'طلب خدمة', icon: Sparkles },
-  { href: '/about', label: 'عن SSHOBIT', icon: Compass },
+  { href: '/about', label: 'عن الموقع', icon: Compass },
 ];
 
 export function SiteHeader() {
@@ -35,7 +35,7 @@ export function SiteHeader() {
 
   return <header className="site-header" ref={headerRef}>
     <div className="container nav-wrap">
-      <Link className="brand" href="/" onClick={close} aria-label="SSHOBIT - الرئيسية"><img className="site-brand-symbol" src="/sshobit-symbol.svg" alt="" width={48} height={48}/></Link>
+      <Link className="brand" href="/" onClick={close} aria-label="الصفحة الرئيسية"><img className="site-brand-symbol" src="/sshobit-symbol.svg" alt="" width={48} height={48}/></Link>
       <nav className="desktop-nav" aria-label="التنقل الرئيسي">
         <div className="nav-dropdown-wrap">
           <button className={mainLinks.some(x=>isActive(x.href)) ? 'nav-trigger active' : 'nav-trigger'} onClick={()=>setMenu(menu==='explore'?null:'explore')} aria-expanded={menu==='explore'}>استكشف <ChevronDown size={14}/></button>
@@ -50,7 +50,7 @@ export function SiteHeader() {
       </nav>
       <div className="nav-actions"><Link className="nav-cta" href="/diagnosis">ابدأ التشخيص <ArrowUpLeft size={15}/></Link><button className="mobile-menu-toggle" onClick={()=>setOpen(!open)} aria-label={open?'إغلاق القائمة':'فتح القائمة'} aria-expanded={open}>{open?<X size={21}/>:<Menu size={21}/>}</button></div>
     </div>
-    {open && <div className="mobile-nav"><div className="mobile-nav-head"><span>القائمة الرئيسية</span><span className="mobile-nav-caption">استكشف SSHOBIT</span></div><div className="mobile-nav-links">{[...mainLinks,...resourceLinks,{href:'/contact',label:'تواصل معنا',icon:HelpCircle}].map(item=><Link key={item.href} href={item.href} onClick={close} className={isActive(item.href)?'mobile-nav-link active':'mobile-nav-link'}><item.icon size={19}/><span>{item.label}</span><ArrowUpLeft size={15}/></Link>)}</div><Link className="mobile-nav-cta" href="/diagnosis" onClick={close}>ابدأ التشخيص <ArrowUpLeft size={17}/></Link></div>}
+    {open && <div className="mobile-nav"><div className="mobile-nav-head"><span>القائمة الرئيسية</span><span className="mobile-nav-caption">استكشف الموقع</span></div><div className="mobile-nav-links">{[...mainLinks,...resourceLinks,{href:'/contact',label:'تواصل معنا',icon:HelpCircle}].map(item=><Link key={item.href} href={item.href} onClick={close} className={isActive(item.href)?'mobile-nav-link active':'mobile-nav-link'}><item.icon size={19}/><span>{item.label}</span><ArrowUpLeft size={15}/></Link>)}</div><Link className="mobile-nav-cta" href="/diagnosis" onClick={close}>ابدأ التشخيص <ArrowUpLeft size={17}/></Link></div>}
     {(menu || open) && <button className="nav-dismiss" aria-label="إغلاق القائمة" onClick={close}/>}
   </header>;
 }

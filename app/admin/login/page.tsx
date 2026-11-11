@@ -14,7 +14,7 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: P
   return (
     <main className="admin-auth-shell">
       <section className="admin-auth-card">
-        <Link href="/" className="admin-brand"><span className="admin-brand-mark">S</span> SSHOBIT <small>CONTROL</small></Link>
+        <Link href="/" className="admin-brand"><span className="admin-brand-mark">S</span> <small>لوحة الإدارة</small></Link>
         <span className="admin-eyebrow">مساحة محمية</span>
         <h1>دخول المسؤول</h1>
         <p className="admin-auth-intro">إدارة محتوى المنصة والطلبات والصلاحيات من مكان واحد.</p>

@@ -399,6 +399,13 @@ img,svg,video,canvas{max-width:100%}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}}
 
 /* Keep the existing layouts readable and usable at narrow widths and with zoom. */
+.home-hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+.home-hero-grid>*,.interactive-visual,.visual-detail>div{min-width:0}
+.visual-topline{flex-wrap:wrap;gap:8px}
+.visual-progress{grid-template-columns:repeat(3,minmax(0,1fr))}
+.visual-progress button{min-width:0;white-space:normal;flex-wrap:wrap;min-height:44px;line-height:1.6}
+.visual-progress button span{flex-shrink:0}
+@media(max-width:900px){.home-hero-grid{grid-template-columns:minmax(0,1fr)}}
 .service-form-grid>*,.diagnosis-top>*,.diagnosis-option>*,.admin-main>*{min-width:0}
 .admin-request-card>div:only-child{grid-column:1/-1}
 .admin-request-card a,.admin-user-area>span{overflow-wrap:anywhere}

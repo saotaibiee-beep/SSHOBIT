@@ -326,3 +326,26 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #34
 .service-form-success{color:#205b49;font-weight:700}.service-form-error{color:#9c3928;font-weight:700}
 .service-honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media(max-width:760px){.service-form-grid{grid-template-columns:1fr}.service-intake-form button{width:100%;justify-self:stretch}}
+
+/* Service request page: enforce true mobile viewport layout and readable controls */
+html,body{max-width:100%;overflow-x:clip}
+.inner-page{width:100%;min-width:0}
+.service-intake-section,.service-intake-form,.service-form-grid{min-width:0;max-width:100%}
+@media(max-width:760px){
+ .inner-page .container{width:calc(100% - 32px);max-width:100%;margin-inline:auto}
+ .inner-page .inner-hero{padding:32px 0 42px}
+ .inner-page .inner-hero h1{font-size:clamp(30px,9vw,42px);line-height:1.45;letter-spacing:0}
+ .inner-page .inner-hero-content>p{font-size:14px;line-height:1.9}
+ .inner-page .inner-hero-note{font-size:11px;line-height:1.8}
+ .inner-page .inner-content{padding-block:20px 45px}
+ .inner-page .service-intake-section{margin:0 0 20px;padding:20px 16px;border-radius:18px}
+ .inner-page .service-intake-section h2{font-size:23px}
+ .inner-page .service-intake-section>p{font-size:13px;line-height:1.85}
+ .service-intake-form{gap:17px}
+ .service-form-grid{grid-template-columns:minmax(0,1fr);gap:17px}
+ .service-intake-form label{font-size:14px}
+ .service-intake-form input,.service-intake-form select,.service-intake-form textarea{font-size:16px;min-height:48px;line-height:1.5}
+ .service-intake-form textarea{min-height:145px}
+ .service-intake-form button{min-height:49px;font-size:14px}
+ .service-form-hint{font-size:12px;line-height:1.85}
+}

@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>SSHOBIT responsive QA</title><style>body{margin:16px;font:14px system-ui;background:#eef2ef;color:#17332a}table{border-collapse:collapse;background:white}td,th{border:1px solid #bbb;padding:8px}iframe{display:block;border:0;background:white;flex:none}section{width:max-content;margin:20px 0;padding:10px;background:white}h2{position:sticky;left:0}</style><h1>SSHOBIT responsive QA</h1><p id="route"></p><table><thead><tr><th>Viewport</th><th>Actual width</th><th>Document width</th><th>Result</th><th>Heading</th></tr></thead><tbody id="results"></tbody></table><pre id="details"></pre><div id="frames"></div><script>
+(async()=>{
+ const path=new URLSearchParams(location.search).get('path')||'/';
+ if(!path.startsWith('/')||path.startsWith('//'))throw Error('local paths only');
+ document.querySelector('#route').textContent=path;
+ const rows=[];
+ await Promise.all([320,375,390,430,768,1024,1440].map(async width=>{
+  const section=document.createElement('section');section.innerHTML='<h2>'+width+'px — '+path+'</h2>';
+  const f=document.createElement('iframe');f.width=String(width);f.height='900';f.title=width+'px '+path;f.style.width=width+'px';section.append(f);document.querySelector('#frames').append(section);
+  await new Promise((resolve,reject)=>{f.onload=resolve;f.onerror=reject;f.src=path});
+  const d=f.contentDocument;await d.fonts.ready;await new Promise(r=>setTimeout(r,700));
+  const w=f.contentWindow; const actual=w.innerWidth,scroll=d.documentElement.scrollWidth;
+  const row={width,actual,scroll,path:w.location.pathname,h1:d.querySelector('h1')?.textContent||'',formControls:[...d.querySelectorAll('input:not([type=hidden]),select,textarea')].filter(e=>!e.closest('[aria-hidden=true]')).map(e=>({name:e.name,width:e.getBoundingClientRect().width,font:w.getComputedStyle(e).fontSize})),overflow:[...d.querySelectorAll('main *,header *,footer *')].filter(e=>{let r=e.getBoundingClientRect();return r.width>0&&(r.left < -1||r.right>actual+1)}).slice(0,12).map(e=>({tag:e.tagName,cls:e.className,x:e.getBoundingClientRect().x,width:e.getBoundingClientRect().width}))};rows.push(row);
+  const tr=document.createElement('tr'); for(const value of [width,actual,scroll,scroll<=actual?'PASS':'OVERFLOW',row.h1]){const td=document.createElement('td');td.textContent=value;tr.append(td)}document.querySelector('#results').append(tr);
+ }));
+ document.querySelector('#details').textContent=JSON.stringify(rows.sort((a,b)=>a.width-b.width),null,2);document.body.dataset.done='true';
+})();
+</script></html>

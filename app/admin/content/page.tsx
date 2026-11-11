@@ -40,7 +40,7 @@ export default async function ContentPage({searchParams}:{searchParams:Promise<{
  const {data:rows}=await supabase.from(type).select('*').order('created_at',{ascending:false}).limit(50);
  const isProblem=type==='problems';
  return <main className="admin-shell">
-  <header className="admin-topbar"><Link href="/admin" className="admin-brand"><span className="admin-brand-mark">S</span> SSHOBIT <small>CONTROL</small></Link><div className="admin-user-area"><span>{user.email}</span><AdminLogoutButton/></div></header>
+  <header className="admin-topbar"><Link href="/admin" className="admin-brand"><span className="admin-brand-mark">S</span> <small>لوحة الإدارة</small></Link><div className="admin-user-area"><span>{user.email}</span><AdminLogoutButton/></div></header>
   <div className="admin-main">
    <Link className="admin-back-link" href="/admin">← لوحة الإدارة</Link>
    <div className="admin-page-heading"><div><span className="admin-eyebrow">CONTENT WORKSPACE</span><h1>إدارة المحتوى</h1><p>تعديل المقالات وأدلة المشكلات، مع إمكانية إلغاء النشر أو الأرشفة.</p></div></div>

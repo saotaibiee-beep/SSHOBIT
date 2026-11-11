@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>SSHOBIT responsive QA</title><style>body{margin:16px;font:14px system-ui;background:#eef2ef;color:#17332a}table{border-collapse:collapse;background:white}td,th{border:1px solid #bbb;padding:8px}iframe{display:block;border:0;background:white;flex:none}section{width:max-content;margin:20px 0;padding:10px;background:white}h2{position:sticky;left:0}details{margin:20px 0}</style><h1>SSHOBIT responsive QA</h1><p id="progress">Starting</p><table><thead><tr><th>Path</th><th>Viewport</th><th>Actual</th><th>Document</th><th>Result</th><th>Heading</th></tr></thead><tbody id="results"></tbody></table><details><summary>Raw measurements</summary><pre id="details"></pre></details><div id="frames"></div><script>
+(async()=>{
+ const query=new URLSearchParams(location.search), path=query.get('path')||'/';
+ const indexes=['/','/services','/services/request','/diagnosis','/problems','/knowledge','/directory','/faq','/contact','/about','/privacy','/terms','/admin/login','/admin/reset-password'];
+ const paths=query.has('all')?[...indexes]:[path];
+ if(query.has('all'))for(const index of ['/knowledge','/problems','/directory']){const html=await(await fetch(index)).text();const doc=new DOMParser().parseFromString(html,'text/html');for(const a of doc.querySelectorAll('main a[href]')){const href=a.getAttribute('href');if(href.startsWith(index+'/')&&!paths.includes(href))paths.push(href)}}
+ const rows=[];
+ for(const path of paths){
+  if(!path.startsWith('/')||path.startsWith('//'))throw Error('local paths only');
+  document.querySelector('#progress').textContent='Testing '+path+' ('+(paths.indexOf(path)+1)+'/'+paths.length+')';
+  document.querySelector('#frames').replaceChildren();
+  await Promise.all([320,375,390,430,768,1024,1440].map(async width=>{
+   const section=document.createElement('section');section.innerHTML='<h2>'+width+'px — '+path+'</h2>';
+   const f=document.createElement('iframe');f.width=String(width);f.height='900';f.title=width+'px '+path;f.style.width=width+'px';section.append(f);document.querySelector('#frames').append(section);
+   await new Promise((resolve,reject)=>{f.onload=resolve;f.onerror=reject;f.src=path});
+   const d=f.contentDocument;await d.fonts.ready;await new Promise(r=>setTimeout(r,500));
+   const w=f.contentWindow;const actual=w.innerWidth,scroll=d.documentElement.scrollWidth;
+   const row={path,width,actual,scroll,url:w.location.pathname,h1:d.querySelector('h1')?.textContent||'',css:[...d.querySelectorAll('link[rel=stylesheet]')].map(e=>e.getAttribute('href')),controls:[...d.querySelectorAll('input:not([type=hidden]),select,textarea')].filter(e=>!e.closest('[aria-hidden=true]')).map(e=>({name:e.name,width:e.getBoundingClientRect().width,font:w.getComputedStyle(e).fontSize})),overflow:[...d.querySelectorAll('main *,header *,footer *')].filter(e=>!e.closest('.animated-scene,.visual-rings,.cta-decoration,.knowledge-orbit')&&e.namespaceURI!=='http://www.w3.org/2000/svg').filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&(r.left < -1||r.right>actual+1)}).slice(0,10).map(e=>({tag:e.tagName,cls:e.className,x:e.getBoundingClientRect().x,width:e.getBoundingClientRect().width}))};rows.push(row);
+   const tr=document.createElement('tr');for(const v of [path,width,actual,scroll,scroll<=actual&&row.h1?'PASS':'FAIL',row.h1]){const td=document.createElement('td');td.textContent=v;tr.append(td)}document.querySelector('#results').append(tr);
+  }));
+  document.querySelector('#details').textContent=JSON.stringify(rows,null,2);
+ }
+ document.querySelector('#progress').textContent='DONE: '+paths.length+' pages, '+rows.length+' viewport checks';document.body.dataset.done='true';
+})().catch(e=>document.querySelector('#progress').textContent='ERROR '+e.message);
+</script></html>

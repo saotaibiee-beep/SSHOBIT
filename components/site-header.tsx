@@ -14,6 +14,7 @@ const resourceLinks = [
   { href: '/knowledge', label: 'مركز المعرفة', icon: BookOpen },
   { href: '/faq', label: 'الأسئلة الشائعة', icon: HelpCircle },
   { href: '/services', label: 'الحلول والخدمات', icon: Sparkles },
+  { href: '/services/request', label: 'طلب خدمة', icon: Sparkles },
   { href: '/about', label: 'عن SSHOBIT', icon: Compass },
 ];
 
@@ -44,6 +45,7 @@ export function SiteHeader() {
           <button className={resourceLinks.some(x=>isActive(x.href)) ? 'nav-trigger active' : 'nav-trigger'} onClick={()=>setMenu(menu==='resources'?null:'resources')} aria-expanded={menu==='resources'}>المصادر <ChevronDown size={14}/></button>
           {menu==='resources' && <div className="nav-dropdown nav-dropdown-small">{resourceLinks.map(item=><Link key={item.href} href={item.href} onClick={close} className={isActive(item.href)?'dropdown-item active':'dropdown-item'}><span className="dropdown-icon"><item.icon size={17}/></span><b>{item.label}</b><ArrowUpLeft size={15}/></Link>)}</div>}
         </div>
+        <Link className={isActive('/services/request')?'nav-simple active':'nav-simple'} href="/services/request">طلب خدمة</Link>
         <Link className={isActive('/contact')?'nav-simple active':'nav-simple'} href="/contact">تواصل معنا</Link>
       </nav>
       <div className="nav-actions"><Link className="nav-cta" href="/diagnosis">ابدأ التشخيص <ArrowUpLeft size={15}/></Link><button className="mobile-menu-toggle" onClick={()=>setOpen(!open)} aria-label={open?'إغلاق القائمة':'فتح القائمة'} aria-expanded={open}>{open?<X size={21}/>:<Menu size={21}/>}</button></div>

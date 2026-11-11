@@ -5,7 +5,7 @@ export function SiteFooter() {
   return <footer className="site-footer">
     <div className="container footer-main">
       <div className="footer-about">
-        <Link className="footer-logo" href="/"><span className="brand-mark">S</span><span>SSHOBIT</span></Link>
+        <Link className="footer-logo" href="/"><img className="site-brand-symbol" src="/sshobit-symbol.svg" alt="" width={58} height={58}/></Link>
         <p>مرجع عربي يشرح المشكلات التي قد تواجه المتداولين أثناء التداول والإيداع والسحب والتحويلات والمحافظ الرقمية.</p>
         <div className="footer-disclaimer"><ShieldCheck size={17}/><span>معلومات توعوية موثقة قدر الإمكان، وليست استشارة مالية أو قانونية.</span></div>
       </div>

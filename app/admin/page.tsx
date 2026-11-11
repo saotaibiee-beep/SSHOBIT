@@ -34,7 +34,7 @@ export default async function AdminDashboard({ searchParams }: { searchParams: P
   return (
     <main className="admin-shell">
       <header className="admin-topbar">
-        <Link href="/admin" className="admin-brand"><span className="admin-brand-mark">S</span> SSHOBIT <small>CONTROL</small></Link>
+        <Link href="/admin" className="admin-brand"><span className="admin-brand-mark">S</span> <small>لوحة الإدارة</small></Link>
         <div className="admin-user-area"><span>{user.email}</span><b>{ROLE_LABELS[role as AdminRole]}</b><AdminLogoutButton /></div>
       </header>
       <div className="admin-main">
@@ -49,7 +49,7 @@ export default async function AdminDashboard({ searchParams }: { searchParams: P
           <article><small>طلبات الخدمات</small><strong>{requestCount}</strong><span>جميع الحالات المسموح بها</span></article>
           <article><small>الأسئلة الشائعة</small><strong>{values[3]}</strong><span>إجمالي الأسئلة</span></article>
         </section>
-        <div className="admin-section-title"><div><span className="admin-eyebrow">WORKSPACE</span><h2>أقسام المنصة</h2></div><span>SSHOBIT / ADMIN</span></div>
+        <div className="admin-section-title"><div><span className="admin-eyebrow">WORKSPACE</span><h2>أقسام المنصة</h2></div><span>لوحة الإدارة</span></div>
         <section className="admin-module-grid">
           {modules.map((item) => <Link className="admin-module" href={item.href} key={item.mark}><span>{item.mark}</span><div><h3>{item.title}</h3><p>{item.detail}</p></div><b>↗</b></Link>)}
         </section>

@@ -310,3 +310,19 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #34
 .paid-service-unavailable{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:11px}
 @media(max-width:950px){.paid-service-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:650px){.paid-service-grid{grid-template-columns:1fr}.paid-service-card{padding:22px}}
+
+.service-intake-section{margin:34px 0;padding:clamp(22px,4vw,42px);border-radius:24px;background:#fff;border:1px solid var(--line)}
+.service-intake-section h2{color:var(--brand-dark);font-size:clamp(23px,3vw,32px);margin:7px 0}
+.service-intake-section>p{color:var(--muted);font-size:13px;margin:0 0 25px}
+.service-intake-form{display:grid;gap:18px}
+.service-form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.service-intake-form label{display:grid;gap:8px;color:var(--brand-dark);font-size:13px;font-weight:700}
+.service-intake-form input,.service-intake-form select,.service-intake-form textarea{width:100%;min-width:0;padding:13px 14px;border:1px solid #c9dcca;border-radius:11px;background:#fbfcfa;color:var(--ink);font:inherit;font-weight:400;outline-offset:3px}
+.service-intake-form textarea{resize:vertical}
+.service-intake-form :is(input,select,textarea):focus{outline:2px solid var(--brand)}
+.service-form-hint{font-size:12px;color:var(--muted);margin:0}
+.service-intake-form button{justify-self:start;background:var(--brand);border:0;border-radius:12px;color:white;font:inherit;font-weight:700;padding:12px 24px;cursor:pointer}
+.service-intake-form button:disabled{opacity:.55;cursor:wait}
+.service-form-success{color:#205b49;font-weight:700}.service-form-error{color:#9c3928;font-weight:700}
+.service-honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media(max-width:760px){.service-form-grid{grid-template-columns:1fr}.service-intake-form button{width:100%;justify-self:stretch}}

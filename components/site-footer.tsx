@@ -13,6 +13,6 @@ export function SiteFooter() {
       <div className="footer-column"><h3>المعرفة والمساعدة</h3><Link href="/knowledge"><BookOpen size={15}/> مركز المعرفة</Link><Link href="/faq">الأسئلة الشائعة</Link><Link href="/services">الحلول والخدمات</Link><Link href="/contact">تواصل معنا</Link></div>
       <div className="footer-column"><h3>معلومات قانونية</h3><Link href="/about">من نحن</Link><Link href="/privacy">سياسة الخصوصية</Link><Link href="/terms">الشروط والأحكام</Link></div>
     </div>
-    <div className="container footer-bottom"><span>© {new Date().getFullYear()} SSHOBIT. جميع الحقوق محفوظة.</span><Link href="/diagnosis">ابدأ بخطوة واضحة <ArrowUpLeft size={14}/></Link></div>
+    <div className="container footer-bottom"><span>© {new Date().getFullYear()} الموقع. جميع الحقوق محفوظة.</span><Link href="/diagnosis">ابدأ بخطوة واضحة <ArrowUpLeft size={14}/></Link></div>
   </footer>;
 }

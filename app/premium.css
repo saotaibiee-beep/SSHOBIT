@@ -289,3 +289,24 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #34
 .brand:hover .site-brand-symbol,.footer-logo:hover .site-brand-symbol{transform:scale(1.055)}
 @media(max-width:640px){.site-brand-symbol{width:43px;height:43px}.footer-logo .site-brand-symbol{width:52px;height:52px}}
 @media(prefers-reduced-motion:reduce){.site-brand-symbol{transition:none}}
+
+/* Paid solutions: accessible pre-launch catalog */
+.paid-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:26px 0 34px}
+.paid-service-card{display:flex;flex-direction:column;min-width:0;padding:27px;border:1px solid var(--line);border-radius:22px;background:var(--surface);box-shadow:0 12px 32px #173b3008}
+.paid-service-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:21px}
+.paid-service-icon{display:grid;place-items:center;width:50px;height:50px;border-radius:15px;background:#eaf3eb;color:var(--brand)}
+.paid-service-tag{padding:5px 11px;border-radius:99px;background:#f2f5ee;color:#53665c;font-size:11px;font-weight:700}
+.paid-service-card h3{font-size:21px;line-height:1.55;margin:0 0 10px;color:var(--brand-dark)}
+.paid-service-card p{font-size:13px;color:var(--muted);margin:0 0 15px;line-height:1.9}
+.paid-service-audience{padding:12px 14px;background:#f5f8f5;border-radius:11px;font-size:12px;color:var(--brand);font-weight:600}
+.paid-service-card h4{font-size:13px;margin:24px 0 12px}
+.paid-service-card ul{padding:0;margin:0 0 24px;list-style:none;display:grid;gap:12px}
+.paid-service-card li{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:#354d40;line-height:1.7}
+.paid-service-card li svg{flex-shrink:0;margin-top:3px;color:var(--brand)}
+.paid-service-bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.paid-service-bottom small{display:block;color:var(--muted);font-size:11px}
+.paid-service-bottom strong{font-size:25px;color:var(--brand-dark)}
+.paid-service-bottom strong span{font-size:12px}
+.paid-service-unavailable{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:11px}
+@media(max-width:950px){.paid-service-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.paid-service-grid{grid-template-columns:1fr}.paid-service-card{padding:22px}}

@@ -35,7 +35,7 @@ export function SiteHeader() {
 
   return <header className="site-header" ref={headerRef}>
     <div className="container nav-wrap">
-      <Link className="brand" href="/" onClick={close} aria-label="الصفحة الرئيسية"><img className="site-brand-symbol" src="/sshobit-symbol.svg" alt="" width={48} height={48}/></Link>
+      <Link className="brand" href="/" onClick={close} aria-label="الصفحة الرئيسية"><img className="site-brand-symbol" src="/sshobit-logo.jpg" alt="شعار الموقع" width={48} height={48}/></Link>
       <nav className="desktop-nav" aria-label="التنقل الرئيسي">
         <div className="nav-dropdown-wrap">
           <button className={mainLinks.some(x=>isActive(x.href)) ? 'nav-trigger active' : 'nav-trigger'} onClick={()=>setMenu(menu==='explore'?null:'explore')} aria-expanded={menu==='explore'}>استكشف <ChevronDown size={14}/></button>

@@ -36,7 +36,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={140} className="home-hero-visual"><InteractiveVisual/></Reveal>
         </div>
-        <div className="home-hero-bottom"><span>SSHOBIT / KNOWLEDGE & GUIDANCE</span><span>01 — 04</span></div>
+        <div className="home-hero-bottom"><span>المعرفة والإرشاد</span><span>01 — 04</span></div>
       </div>
     </section>
     <section className="home-areas section-pad"><div className="container">

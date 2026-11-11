@@ -442,3 +442,14 @@ img,svg,video,canvas{max-width:100%}
  .article-sources li a{overflow-wrap:anywhere}
  .admin-auth-card .admin-brand{gap:7px;letter-spacing:0}
 }
+
+/* Brand palette coordinated with supplied original 3D logo; no edits to logo asset */
+.site-header{background:#f0f1ef}
+.site-header .nav-wrap{border-color:#d9e2db}
+.site-header .nav-cta{background:#12664e;color:#fff}
+.site-header .nav-cta:hover{background:#0a493c}
+.site-footer{background:#103c32;color:#f1f6ef}
+.site-footer .footer-bottom{border-top-color:#6bbd9b33}
+.site-footer .footer-column a:hover,.site-footer .footer-bottom a{color:#b5eb6b}
+.site-header .brand,.site-footer .footer-logo{display:inline-flex;align-items:center;justify-content:center}
+.site-header .site-brand-symbol,.site-footer .site-brand-symbol{object-fit:contain}

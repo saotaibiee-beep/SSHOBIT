@@ -26,7 +26,7 @@ export default async function PlatformDetail({params}:{params:Promise<{slug:stri
     {facts.referral_url&&<a className="button button-secondary" href={facts.referral_url} target="_blank" rel="sponsored nofollow noreferrer">رابط التسجيل <ExternalLink size={16}/></a>}
    </div>
   </div></section>
-  <section className="container article-content">
+  <section className="container article-content directory-detail">
    <section className="article-section"><h2><Wallet size={20}/> وش تقدم الخدمة؟</h2><ul>{(facts.what_it_offers||[]).map((x,i)=><li key={i}>{x}</li>)}</ul></section>
    {facts.bank_details&&<section className="article-section"><h2>طبيعة الحساب والجهة المقدمة</h2><p>{facts.bank_details}</p></section>}
    {facts.fees&&<section className="article-section"><h2>الرسوم والتكاليف</h2><p>{facts.fees}</p></section>}

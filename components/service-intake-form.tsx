@@ -24,7 +24,6 @@ export function ServiceIntakeForm(){
   <label>البريد الإلكتروني لاستلام التقرير<input name="email" type="email" required maxLength={254} autoComplete="email" dir="ltr" placeholder="you@example.com"/></label></div>
   <label>اشرح المشكلة بدون معلومات سرية<textarea name="summary" required minLength={30} maxLength={3000} rows={5} placeholder="وش صار؟ متى بدأت المشكلة؟ وما الخطوات اللي جربتها؟ لا تكتب أرقام حسابات أو كلمات مرور أو مفاتيح محافظ."/></label>
   <div className="service-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
-  <p className="service-form-hint">سيظهر طلبك للإدارة فقط. الدفع بالدولار الأمريكي عبر PayPal، وقد تظهر قيمة بعملتك المحلية حسب سعر الصرف ورسوم مزود الدفع. لن يبدأ إعداد التقرير قبل تأكيد الدفع.</p>
   <button type="submit" disabled={loading}>{loading?'جارٍ تسجيل الطلب...':'إرسال الطلب للإدارة'}</button>
   {payment&&checkoutReady&&<button type="button" onClick={pay} disabled={paying}>{paying?'جارٍ الاتصال بـ PayPal...':'المتابعة للدفع عبر PayPal'}</button>}
   {payment&&!checkoutReady&&<p role="status">تم حفظ الطلب. الدفع غير متاح مؤقتاً إلى أن يكتمل ربط قاعدة البيانات.</p>}

@@ -7,7 +7,9 @@ export async function POST(req:Request){
   if(typeof requestId!=='string'||!/^[0-9a-f-]{36}$/i.test(requestId)||typeof email!=='string')return NextResponse.json({error:'بيانات الطلب غير صحيحة'},{status:400});
   const db=adminDb();
   const {data:r,error}=await db.from('service_intake_requests').select('id,email,service_code,price_usd,status,paypal_order_id').eq('id',requestId).single();
-  if(error||!r||r.email!==email.trim().toLowerCase())return NextResponse.json({error:'الطلب غير موجود'},{status:404});
+  if(error){console.error('PayPal intake lookup failed',error.code,error.message);return NextResponse.json({error:'تعذر التحقق من الطلب في قاعدة البيانات. تواصل مع الإدارة ولا تعِد إرسال الطلب.'},{status:503});}
+  if(!r)return NextResponse.json({error:'لم يُعثر على الطلب المسجل. تواصل مع الإدارة برقم طلبك.'},{status:404});
+  if(r.email.trim().toLowerCase()!==email.trim().toLowerCase())return NextResponse.json({error:'البريد الإلكتروني لا يطابق البريد المسجل في الطلب.'},{status:409});
   if(r.status!=='awaiting_payment')return NextResponse.json({error:'لا يمكن الدفع لهذا الطلب'},{status:409});
   const price=prices[r.service_code];
   if(!price||Number(r.price_usd)!==price)return NextResponse.json({error:'سعر الطلب غير مطابق'},{status:409});

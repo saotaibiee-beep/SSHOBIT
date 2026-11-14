@@ -496,7 +496,13 @@ img,svg,video,canvas{max-width:100%}
 .contact-message-form button{justify-self:start;border:0;border-radius:10px;background:var(--brand);color:white;padding:13px 25px;font:inherit;font-weight:700;cursor:pointer}
 .contact-message-form button:disabled{opacity:.65;cursor:wait}
 .contact-message-form .contact-feedback{color:var(--brand-dark);font-weight:700;overflow-wrap:anywhere}
-.contact-trap{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.contact-trap{display:none!important}
 .contact-admin-status{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
 .contact-admin-status select{min-width:150px;max-width:100%;padding:10px;border:1px solid var(--line);border-radius:8px}
 @media(max-width:640px){.contact-fields{grid-template-columns:minmax(0,1fr)}.contact-message-form{padding:20px 16px}.contact-message-form button{width:100%}}
+
+/* Contact mobile viewport: prevent off-screen honeypot from expanding RTL scroll area */
+.contact-message-form{box-sizing:border-box;min-width:0;max-width:min(840px,100%)}
+.contact-message-form>*{min-width:0;max-width:100%}
+.contact-message-form .contact-fields>*{min-width:0}
+@media(max-width:760px){.inner-page:has(.contact-message-form){width:100%;max-width:100%;overflow-x:clip}.inner-page:has(.contact-message-form) .container{box-sizing:border-box;width:calc(100% - 32px);max-width:100%;margin-inline:auto}.inner-page:has(.contact-message-form) .inner-content{padding-inline:0}.inner-page:has(.contact-message-form) .inner-hero-content{padding-inline:0}.contact-message-form{margin-inline:auto}}

@@ -33,7 +33,7 @@ export default async function PlatformDetail({params}:{params:Promise<{slug:stri
    {facts.eligibility&&<section className="article-section"><h2>التوفر والأهلية في السعودية</h2><p>{facts.eligibility}</p><p><strong>حالة التوفر:</strong> {data.saudi_availability}</p></section>}
    {facts.getting_started && facts.getting_started.length>0&&<section className="article-section"><h2>كيف تبدأ؟</h2><ol>{facts.getting_started.map((x,i)=><li key={i}>{x}</li>)}</ol></section>}
    {facts.risks && facts.risks.length>0&&<section className="article-section"><h2><AlertTriangle size={20}/> نقاط لازم تنتبه لها</h2><ul>{facts.risks.map((x,i)=><li key={i}>{x}</li>)}</ul></section>}
-   {facts.referral_note&&<p className="muted">{facts.referral_note} قد يحصل الموقع أو صاحب الرابط على منفعة إحالة عند التسجيل؛ هذا لا يعني اعتماد SSHOBIT للخدمة أو ضمان قبولك.</p>}
+   
    <section className="article-sources"><div className="article-sources-heading"><FileText size={19}/><div><h2>المصادر الرسمية</h2><p>راجع الشروط والرسوم والأهلية مباشرة قبل استخدام الخدمة.</p></div></div><ul>{sources.map((s,i)=><li key={i}><a href={s.url} target="_blank" rel="noreferrer"><span>{s.label||s.url}</span><ExternalLink size={14}/></a></li>)}</ul></section>
    <div className="article-review"><span>معلومات تعريفية وليست توصية مالية أو ضماناً لتوفر الخدمة.</span><Link href="/directory" className="article-back">العودة إلى دليل المنصات <ArrowUpLeft size={16}/></Link></div>
   </section>

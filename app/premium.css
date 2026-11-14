@@ -473,3 +473,14 @@ img,svg,video,canvas{max-width:100%}
  .final-cta-inner>div:first-child>p{font-size:14px;line-height:1.85}
  .final-cta-button{min-height:48px}
 }
+
+/* Directory profile sections contain full-width headings and content, not numbered article grid columns. */
+.directory-detail .article-section{display:block;min-width:0;padding:22px 0}
+.directory-detail .article-section h2{display:flex;align-items:center;gap:9px;max-width:100%;font-size:clamp(17px,2.8vw,21px);line-height:1.55;margin:0 0 14px;overflow-wrap:break-word}
+.directory-detail .article-section h2 svg{flex:none}
+.directory-detail .article-section p,.directory-detail .article-section li{font-size:clamp(14px,1.6vw,16px);line-height:1.95;overflow-wrap:break-word;word-break:normal}
+.directory-detail .article-section ul,.directory-detail .article-section ol{padding-inline-start:24px;margin:0}
+.directory-detail .article-section p{margin:0}
+.directory-detail .article-section p+p{margin-top:12px}
+.directory-detail .article-sources{min-width:0}
+@media(max-width:680px){.directory-detail.article-content{width:calc(100% - 32px);padding-block:25px 48px}.directory-detail .article-section{padding:19px 0}.directory-detail .article-section h2{font-size:18px}.directory-detail .article-section p,.directory-detail .article-section li{font-size:15px;line-height:1.95}}

@@ -12,6 +12,7 @@ const modules = [
   { title: 'الدليل والمنصات', detail: 'مراجعة بيانات المنصات والمحافظ ومصادرها', href: '/admin/directory', mark: '04' },
   { title: 'الأسئلة الشائعة', detail: 'مراجعة الإجابات وترتيب ظهورها', href: '/admin/faqs', mark: '05' },
   { title: 'الفريق والصلاحيات', detail: 'حسابات الإدارة والأدوار', href: '/admin/users', mark: '06' },
+  { title: 'رسائل التواصل', detail: 'استقبال الاستفسارات والاقتراحات والرد عبر البريد', href: '/admin/contact', mark: '09' },
   { title: 'سجل النشاط', detail: 'تسجيل عمليات دخول وخروج الإدارة', href: '/admin/activity', mark: '07' },
   { title: 'مصفوفة الصلاحيات', detail: 'مراجعة نطاق الوصول لكل دور إداري', href: '/admin/permissions', mark: '08' },
 ];

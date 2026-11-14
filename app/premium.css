@@ -506,3 +506,11 @@ img,svg,video,canvas{max-width:100%}
 .contact-message-form>*{min-width:0;max-width:100%}
 .contact-message-form .contact-fields>*{min-width:0}
 @media(max-width:760px){.inner-page:has(.contact-message-form){width:100%;max-width:100%;overflow-x:clip}.inner-page:has(.contact-message-form) .container{box-sizing:border-box;width:calc(100% - 32px);max-width:100%;margin-inline:auto}.inner-page:has(.contact-message-form) .inner-content{padding-inline:0}.inner-page:has(.contact-message-form) .inner-hero-content{padding-inline:0}.contact-message-form{margin-inline:auto}}
+
+/* Directory risk notice appears after all platform cards */
+.directory-trading-warning{box-sizing:border-box;margin-block:12px 64px;padding:clamp(20px,3vw,32px);border:1px solid #dfcfa9;border-inline-start:4px solid #b98a36;border-radius:16px;background:#faf7ee;color:var(--ink);max-width:1160px}
+.directory-trading-warning-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px;color:#74551c}
+.directory-trading-warning-heading h2{font-size:clamp(19px,2.5vw,25px);margin:0}
+.directory-trading-warning p{line-height:1.95;font-size:clamp(14px,1.5vw,16px);margin:0 0 12px}
+.directory-trading-warning p:last-child{margin-bottom:0}
+@media(max-width:640px){.directory-trading-warning{width:calc(100% - 32px);margin-inline:auto;margin-bottom:40px}}

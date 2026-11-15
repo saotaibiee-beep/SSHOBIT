@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div className="footer-about">
         <Link className="footer-logo" href="/" aria-label="الصفحة الرئيسية"><img className="site-brand-symbol" src="/sshobit-logo.jpg" alt="شعار الموقع" width={58} height={58}/></Link>
         <p>مرجع عربي يشرح المشكلات التي قد تواجه المتداولين أثناء التداول والإيداع والسحب والتحويلات والمحافظ الرقمية.</p>
-        <div className="footer-disclaimer"><ShieldCheck size={17}/><span>معلومات توعوية موثقة قدر الإمكان، وليست استشارة مالية أو قانونية.</span></div>
+        <div className="footer-disclaimer"><ShieldCheck size={17}/><span>معلومات توعوية موثقة قدر الإمكان وليست استشارة مالية أو قانونية.</span></div>
       </div>
       <div className="footer-column"><h3>استكشف</h3><Link href="/problems"><Landmark size={15}/> مركز المشكلات</Link><Link href="/diagnosis"><ScanSearch size={15}/> التشخيص الذكي</Link><Link href="/directory">دليل المنصات والمحافظ</Link></div>
       <div className="footer-column"><h3>المعرفة والمساعدة</h3><Link href="/knowledge"><BookOpen size={15}/> مركز المعرفة</Link><Link href="/faq">الأسئلة الشائعة</Link><Link href="/services">الحلول والخدمات</Link><Link href="/contact">تواصل معنا</Link></div>

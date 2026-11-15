@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="footer-disclaimer"><ShieldCheck size={17}/><span>معلومات توعوية موثقة قدر الإمكان وليست استشارة مالية أو قانونية.</span></div>
       </div>
       <div className="footer-column"><h3>استكشف</h3><Link href="/problems"><Landmark size={15}/> مركز المشكلات</Link><Link href="/diagnosis"><ScanSearch size={15}/> التشخيص الذكي</Link><Link href="/directory">دليل المنصات والمحافظ</Link></div>
-      <div className="footer-column"><h3>المعرفة والمساعدة</h3><Link href="/knowledge"><BookOpen size={15}/> مركز المعرفة</Link><Link href="/faq">الأسئلة الشائعة</Link><Link href="/services">الحلول والخدمات</Link><Link href="/contact">تواصل معنا</Link></div>
+      <div className="footer-column"><h3>المعرفة والمساعدة</h3><Link href="/knowledge"><BookOpen size={15}/> مركز المعرفة</Link><Link href="/binance">دليل Binance الشامل</Link><Link href="/faq">الأسئلة الشائعة</Link><Link href="/services">الحلول والخدمات</Link><Link href="/contact">تواصل معنا</Link></div>
       <div className="footer-column"><h3>معلومات قانونية</h3><Link href="/about">من نحن</Link><Link href="/privacy">سياسة الخصوصية</Link><Link href="/terms">الشروط والأحكام</Link></div>
     </div>
     <div className="container footer-bottom"><span>© {new Date().getFullYear()} الموقع. جميع الحقوق محفوظة.</span><Link href="/diagnosis">ابدأ بخطوة واضحة <ArrowUpLeft size={14}/></Link></div>

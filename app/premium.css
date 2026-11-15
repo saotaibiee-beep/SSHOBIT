@@ -531,3 +531,16 @@ img,svg,video,canvas{max-width:100%}
 .article-markdown a{color:var(--brand);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
 .article-markdown ul,.article-markdown ol{padding-inline-start:24px}
 .article-markdown hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+
+/* Markdown renderer spacing fix: avoid inherited pre-wrap and oversized gaps */
+.article-body:has(.article-markdown){white-space:normal}
+.article-markdown{white-space:normal;line-height:1.85;overflow-wrap:anywhere}
+.article-markdown p{margin:0 0 14px;white-space:normal}
+.article-markdown h2{margin:28px 0 10px;line-height:1.55}
+.article-markdown h3{margin:22px 0 9px;line-height:1.55}
+.article-markdown h4{margin:18px 0 8px;line-height:1.55}
+.article-markdown ul,.article-markdown ol{margin:8px 0 16px;padding-inline-start:24px;white-space:normal}
+.article-markdown li{margin:4px 0;line-height:1.85;white-space:normal}
+.article-markdown li>p{margin:0 0 6px}
+.article-markdown :is(p,ul,ol,blockquote):last-child{margin-bottom:0}
+@media(max-width:640px){.article-markdown{line-height:1.8}.article-markdown p{margin-bottom:12px}.article-markdown h2{margin-top:23px}.article-markdown h3{margin-top:19px}}

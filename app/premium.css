@@ -517,3 +517,17 @@ img,svg,video,canvas{max-width:100%}
 
 /* Binance knowledge hub */
 .binance-hub-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 44px}.binance-hub-stats a{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;color:var(--brand-dark);text-decoration:none}.binance-hub-stats strong{font-size:26px}.binance-hub-stats span{color:var(--muted);font-size:13px}.binance-hub-section{scroll-margin-top:100px;margin:0 0 60px}.binance-hub-section .inner-section-title{margin-bottom:22px}.binance-hub-empty{padding:28px;background:#fff;border:1px solid var(--line);border-radius:16px;color:var(--muted)}.binance-hub-empty a{color:var(--brand)}.binance-hub-help{display:flex;align-items:center;gap:22px;background:#e8f2e9;padding:28px;border-radius:20px;margin:30px 0}.binance-hub-help h2{font-size:22px;margin:0 0 8px}.binance-hub-help p{margin:0;color:var(--muted)}.binance-hub-actions{display:flex;gap:10px;flex-wrap:wrap;margin-inline-start:auto}.binance-hub-actions a{display:inline-flex;align-items:center;gap:6px;padding:12px 16px;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;white-space:nowrap}.binance-hub-warning{display:flex;align-items:flex-start;gap:12px;padding:20px;border:1px solid #e5d9b6;border-radius:14px;background:#fcf8ed;margin-bottom:45px}.binance-hub-warning p{margin:0;line-height:1.9}@media(max-width:760px){.binance-hub-stats{grid-template-columns:1fr;gap:10px;margin-bottom:30px}.binance-hub-stats a{padding:14px 18px}.binance-hub-help{flex-direction:column;align-items:flex-start;padding:22px}.binance-hub-actions{margin-inline-start:0}.binance-hub-help h2{font-size:19px}}
+
+/* Rich article Markdown: accessible tables and readable long-form content */
+.article-markdown .article-table-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;margin:20px 0;border:1px solid var(--line);border-radius:12px}
+.article-markdown .article-table-scroll table{width:100%;min-width:520px;border-collapse:collapse;text-align:start;font-size:14px}
+.article-markdown th,.article-markdown td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:start}
+.article-markdown th{background:#edf4ee;color:var(--brand-dark);font-weight:700}
+.article-markdown tr:last-child td{border-bottom:0}
+.article-markdown blockquote{margin:20px 0;padding:10px 18px;border-inline-start:4px solid var(--brand);background:#edf4ee;border-radius:8px}
+.article-markdown pre{max-width:100%;overflow-x:auto;padding:16px;border-radius:10px;background:#142820;color:#f1f8ef;direction:ltr;text-align:left}
+.article-markdown :not(pre)>code{padding:2px 5px;border-radius:4px;background:#edf4ee;overflow-wrap:anywhere}
+.article-markdown img{max-width:100%;height:auto;border-radius:10px}
+.article-markdown a{color:var(--brand);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.article-markdown ul,.article-markdown ol{padding-inline-start:24px}
+.article-markdown hr{border:0;border-top:1px solid var(--line);margin:26px 0}

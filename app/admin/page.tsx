@@ -54,7 +54,7 @@ export default async function AdminDashboard({ searchParams }: { searchParams: P
         <section className="admin-module-grid">
           {modules.map((item) => <Link className="admin-module" href={item.href} key={item.mark}><span>{item.mark}</span><div><h3>{item.title}</h3><p>{item.detail}</p></div><b>↗</b></Link>)}
         </section>
-        <section className="admin-security-note"><b>حماية الوصول</b><p>كل صفحة إدارية تتحقق من جلسة Supabase ودور المستخدم على الخادم. وتُطبق قاعدة البيانات صلاحيات مستقلة عبر RLS؛ إخفاء الروابط وحده لا يمنح أو يمنع الوصول.</p></section>
+        <section className="admin-security-note"><b>حماية الوصول</b><p>كل صفحة إدارية تتحقق من جلسة Supabase ودور المستخدم على الخادم. وتُطبق قاعدة البيانات صلاحيات مستقلة عبر RLS إخفاء الروابط وحده لا يمنح أو يمنع الوصول.</p></section>
       </div>
     </main>
   );

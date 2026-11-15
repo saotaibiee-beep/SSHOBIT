@@ -12,6 +12,7 @@ const mainLinks = [
 ];
 const resourceLinks = [
   { href: '/knowledge', label: 'مركز المعرفة', icon: BookOpen },
+  { href: '/binance', label: 'دليل Binance الشامل', icon: BookOpen },
   { href: '/faq', label: 'الأسئلة الشائعة', icon: HelpCircle },
   { href: '/services', label: 'الحلول والخدمات', icon: Sparkles },
   { href: '/services/request', label: 'طلب خدمة', icon: Sparkles },

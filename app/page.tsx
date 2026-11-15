@@ -5,9 +5,9 @@ import { InteractiveVisual } from '@/components/interactive-visual';
 import { Reveal } from '@/components/reveal';
 
 const issueAreas = [
-  { n: '01', icon: Landmark, title: 'الحسابات والتحويلات', desc: 'تأخر التحويلات، طلبات التحقق، ومشكلات إتمام العمليات المالية.', href: '/problems', tone: 'mint' },
-  { n: '02', icon: Wallet, title: 'منصات التداول والمحافظ', desc: 'مشكلات الإيداع والسحب، قيود الحساب، والتحقق من الهوية.', href: '/problems', tone: 'blue' },
-  { n: '03', icon: Network, title: 'الشبكات والمعاملات', desc: 'التحويل إلى شبكة غير مطابقة، العناوين، ومعرّفات المعاملات.', href: '/problems', tone: 'sand' },
+  { n: '01', icon: Landmark, title: 'الحسابات والتحويلات', desc: 'تأخر التحويلات طلبات التحقق ومشكلات إتمام العمليات المالية.', href: '/problems', tone: 'mint' },
+  { n: '02', icon: Wallet, title: 'منصات التداول والمحافظ', desc: 'مشكلات الإيداع والسحب قيود الحساب والتحقق من الهوية.', href: '/problems', tone: 'blue' },
+  { n: '03', icon: Network, title: 'الشبكات والمعاملات', desc: 'التحويل إلى شبكة غير مطابقة العناوين ومعرّفات المعاملات.', href: '/problems', tone: 'sand' },
 ];
 const steps = [
   { icon: ClipboardList, n: '01', title: 'صف ما حدث', desc: 'حدد نوع المشكلة والمرحلة التي ظهرت فيها والرسالة المصاحبة.' },
@@ -15,8 +15,8 @@ const steps = [
   { icon: ShieldCheck, n: '03', title: 'تعرّف على الخيارات', desc: 'راجع خطوات التحقق والإجراءات المناسبة لحالتك.' },
 ];
 const principles = [
-  { icon: ShieldCheck, title: 'وضوح بلا مبالغة', desc: 'نوضح ما هو مؤكد وما يحتاج إلى تحقق، ولا نعد بنتيجة لا يمكن ضمانها.' },
-  { icon: BookOpenCheck, title: 'مصادر يمكن الرجوع لها', desc: 'نربط الإرشادات بالمصادر الرسمية متى توفرت، مع توضيح حدود المعلومات.' },
+  { icon: ShieldCheck, title: 'وضوح بلا مبالغة', desc: 'نوضح ما هو مؤكد وما يحتاج إلى تحقق ولا نعد بنتيجة لا يمكن ضمانها.' },
+  { icon: BookOpenCheck, title: 'مصادر يمكن الرجوع لها', desc: 'نربط الإرشادات بالمصادر الرسمية متى توفرت مع توضيح حدود المعلومات.' },
   { icon: LockKeyhole, title: 'خصوصيتك أولاً', desc: 'لا نطلب كلمات المرور أو رموز التحقق أو عبارات الاسترداد والمفاتيح الخاصة.' },
 ];
 
@@ -28,9 +28,9 @@ export default function Home() {
         <div className="home-hero-meta"><span className="hero-pill"><i/> منصة عربية متخصصة في مشكلات المتداولين</span><span className="hero-index">المعرفة أولاً · القرار لك</span></div>
         <div className="home-hero-grid">
           <Reveal className="home-hero-copy">
-            <span className="home-eyebrow">حين تتعقد التفاصيل، ابدأ بالفهم</span>
+            <span className="home-eyebrow">حين تتعقد التفاصيل ابدأ بالفهم</span>
             <h1>افهم المشكلة.<br/><em>وشوف خطوتك.</em></h1>
-            <p>نساعدك على فهم المشكلات التي قد تواجهك أثناء التداول، من الإيداع والسحب والتحويلات إلى قيود الحسابات والتحقق من الهوية ومعاملات P2P.</p>
+            <p>نساعدك على فهم المشكلات التي قد تواجهك أثناء التداول من الإيداع والسحب والتحويلات إلى قيود الحسابات والتحقق من الهوية ومعاملات P2P.</p>
             <div className="home-hero-actions"><Link href="/diagnosis" className="home-primary-btn">ابدأ التشخيص <ArrowUpLeft size={18}/></Link><Link href="/problems" className="home-secondary-link">تصفح مركز المشكلات <ArrowLeft size={16}/></Link></div>
             <div className="hero-assurance"><ShieldCheck size={16}/><span>معلومات وإرشادات عملية — لا نطلب بياناتك السرية</span></div>
           </Reveal>
@@ -48,10 +48,10 @@ export default function Home() {
       <div className="steps-stack">{steps.map((step,i)=><Reveal key={step.n} delay={i*80}><article className="method-step"><span className="method-step-number">{step.n}</span><span className="method-step-icon"><step.icon size={21}/></span><div><h3>{step.title}</h3><p>{step.desc}</p></div><ArrowUpLeft className="method-step-arrow" size={18}/></article></Reveal>)}</div>
     </div></section>
     <section className="home-principles section-pad"><div className="container">
-      <Reveal className="section-heading-row"><div><span className="section-kicker">03 / مبدأنا</span><h2>معلومة موثوقة،<br/><em>بدون وعود زائفة.</em></h2></div><p>نركز على المشكلات والتحديات التي قد تواجه المتداول أثناء استخدام حساباته ومنصاته ومحافظه وإجراء معاملاته.</p></Reveal>
+      <Reveal className="section-heading-row"><div><span className="section-kicker">03 / مبدأنا</span><h2>معلومة موثوقة<br/><em>بدون وعود زائفة.</em></h2></div><p>نركز على المشكلات والتحديات التي قد تواجه المتداول أثناء استخدام حساباته ومنصاته ومحافظه وإجراء معاملاته.</p></Reveal>
       <div className="principle-grid">{principles.map((item,i)=><Reveal key={item.title} delay={i*80}><article className="principle-card"><span><item.icon size={21}/></span><h3>{item.title}</h3><p>{item.desc}</p></article></Reveal>)}</div>
     </div></section>
-    <section className="home-knowledge"><div className="container knowledge-layout"><Reveal><span className="section-kicker">04 / مركز المعرفة</span><h2>قبل ما تتخذ قرار،<br/><em>خلّ المعلومة تسبقك.</em></h2><p>أدلة ومقالات عربية تشرح المشكلات والإجراءات والمفاهيم بخطوات مفهومة، مع توثيق المصادر ومراجعة المحتوى.</p><Link href="/knowledge" className="knowledge-cta">اكتشف مركز المعرفة <ArrowUpLeft size={17}/></Link></Reveal><Reveal delay={130} className="knowledge-visual"><div className="knowledge-orbit"><span/><span/><span/><div><BookOpenCheck size={34}/><b>دليل</b></div></div><div className="knowledge-float-card"><small>KNOWLEDGE BASE</small><strong>معلومة + مصدر + خطوة</strong><span>محتوى قابل للتحقق</span></div></Reveal></div></section>
+    <section className="home-knowledge"><div className="container knowledge-layout"><Reveal><span className="section-kicker">04 / مركز المعرفة</span><h2>قبل ما تتخذ قرار<br/><em>خلّ المعلومة تسبقك.</em></h2><p>أدلة ومقالات عربية تشرح المشكلات والإجراءات والمفاهيم بخطوات مفهومة مع توثيق المصادر ومراجعة المحتوى.</p><Link href="/knowledge" className="knowledge-cta">اكتشف مركز المعرفة <ArrowUpLeft size={17}/></Link></Reveal><Reveal delay={130} className="knowledge-visual"><div className="knowledge-orbit"><span/><span/><span/><div><BookOpenCheck size={34}/><b>دليل</b></div></div><div className="knowledge-float-card"><small>KNOWLEDGE BASE</small><strong>معلومة + مصدر + خطوة</strong><span>محتوى قابل للتحقق</span></div></Reveal></div></section>
     <section className="home-final-cta"><div className="container final-cta-inner"><div><span className="section-kicker">ابدأ من هنا</span><h2>لا تستعجل الحل.<br/><em>افهم الحالة أولاً.</em></h2><p>استخدم التشخيص الإرشادي لترتيب المعطيات والتعرّف على خطوات التحقق الأولية.</p></div><Link href="/diagnosis" className="final-cta-button">ابدأ التشخيص الآن <ArrowUpLeft size={19}/></Link><div className="cta-decoration" aria-hidden="true"><ScanSearch size={155}/></div></div></section>
   </main>;
 }
